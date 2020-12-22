@@ -1,0 +1,12 @@
+<div>
+    <h2>Course Add</h2>
+    <div>
+      <label>Course Name:
+        <input [(ngModel)]="courseData.courseName" placeholder="Course Name"/>
+      </label><br>
+      <label>User Id:
+        <input [(ngModel)]="courseData.userId" placeholder="User Id"/>
+      </label><br>
+    </div>
+    <button (click)="addCourse()">Save</button>
+  </div>

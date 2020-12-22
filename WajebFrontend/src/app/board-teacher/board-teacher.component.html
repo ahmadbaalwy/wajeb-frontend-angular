@@ -1,0 +1,15 @@
+
+<div class="container">
+  <div>
+    <button (click)="add()">
+      Add
+    </button>
+  </div>
+    <header class="jumbotron">
+      <ng-container *ngFor="let course of courses;">
+        {{course.id}} - {{course.courseName}} <br>
+      </ng-container>
+    </header>
+  </div>
+
+  

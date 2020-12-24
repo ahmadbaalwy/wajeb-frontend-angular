@@ -13,7 +13,8 @@ import { Token } from '@angular/compiler/src/ml_parser/lexer';
 export class CourseAddComponent implements OnInit {
 
   currentUser: any;
-  @Input() courseData = { courseName: '', userId: '' };
+  @Input() courseData = { courseName: '' };
+  newCourseData: any;
 
   constructor(private courseService: CoursesService, private router:Router, private token: TokenStorageService) { }
 
@@ -22,8 +23,10 @@ export class CourseAddComponent implements OnInit {
   }
 
   addCourse(): void{
+
+     this.newCourseData = {courseName: this.courseData.courseName, token: this.token.getToken()}
      
-     this.courseService.addCourse(this.courseData.courseName ).subscribe(
+     this.courseService.addCourse(this.newCourseData ).subscribe(
       data => {
         this.router.navigate(['/teacher']);
       },

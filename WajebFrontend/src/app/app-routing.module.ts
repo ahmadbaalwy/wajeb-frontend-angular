@@ -10,6 +10,8 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardTeacherComponent } from './board-teacher/board-teacher.component';
 import { CourseAddComponent } from './course-add/course-add.component';
+import { CourseDeleteComponent } from './course-delete/course-delete.component';
+import { CourseEditComponent } from './course-edit/course-edit.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: 'teacher', component: BoardTeacherComponent },
   { path: 'course-add', component: CourseAddComponent },
+  { path: 'course-delete', component: CourseDeleteComponent },
+  { path: 'course-edit', component: CourseEditComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

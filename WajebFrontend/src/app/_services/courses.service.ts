@@ -27,9 +27,9 @@ export class CoursesService {
 
   constructor(private http: HttpClient, private toekn:TokenStorageService) { }
 
-  getTeacherCourses(userId): Observable<any>{
+  getTeacherCourses(token): Observable<any>{
 
-    let params = new HttpParams().set("userId",userId);
+    let params = new HttpParams().set("token",token);
 
     let headers = new HttpHeaders().append('responseType', 'json');
     headers.append('responseType', 'json');
@@ -40,5 +40,19 @@ export class CoursesService {
 
   addCourse(course: any): Observable<any>{
     return this.http.post(API_URL + "addCourse", course, httpOptions);
+  }
+
+  deleteCourse(token: any, courseId: any): Observable<any>{
+    let headers = new HttpHeaders().append('Content-Type', 'application/json');
+    return this.http.post(API_URL + "deleteCourse", {responseType: 'json'}, {headers: headers, params: {token: token, courseId: courseId}});
+  }
+
+  editCourseGet(token: any, courseId: any): Observable<any>{
+    let headers = new HttpHeaders().append('responseType', 'json');
+    return this.http.get<Course>(API_URL + 'editCourse', {responseType: 'json', headers: headers, params: {token: token, courseId: courseId}});
+  }
+  editCoursePost(token: any, courseId: any, courseName: any): Observable<any>{
+    let headers = new HttpHeaders().append('Content-Type', 'application/json');
+    return this.http.post(API_URL + "editCourse", {responseType: 'json'}, {headers: headers, params: {token: token, courseId: courseId, courseName: courseName}});
   }
 }

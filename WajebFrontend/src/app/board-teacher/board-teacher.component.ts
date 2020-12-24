@@ -19,7 +19,7 @@ export class BoardTeacherComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
-    this.courseService.getTeacherCourses(1).subscribe(
+    this.courseService.getTeacherCourses(this.token.getToken()).subscribe(
       data => {
         this.courses = data;
       },
@@ -31,6 +31,14 @@ export class BoardTeacherComponent implements OnInit {
 
   add(): void{
     this.router.navigate(['/course-add']);
+  }
+
+  delete(courseId: any): void{
+    this.router.navigate(['/course-delete'], { queryParams: {courseId: courseId} });
+  }
+
+  edit(courseId: any): void{
+    this.router.navigate(['/course-edit'], {queryParams: {courseId: courseId} });
   }
 
 }

@@ -17,6 +17,8 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { BoardTeacherComponent } from './board-teacher/board-teacher.component';
 import { CourseAddComponent } from './course-add/course-add.component';
+import { CourseDeleteComponent } from './course-delete/course-delete.component';
+import { CourseEditComponent } from './course-edit/course-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CourseAddComponent } from './course-add/course-add.component';
     BoardModeratorComponent,
     BoardUserComponent,
     BoardTeacherComponent,
-    CourseAddComponent
+    CourseAddComponent,
+    CourseDeleteComponent,
+    CourseEditComponent
   ],
   imports: [
     BrowserModule,
